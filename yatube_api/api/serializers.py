@@ -1,4 +1,4 @@
-from posts.models import Comment, Group, Post, Follow
+from posts.models import Comment, Group, Post, Follow, User
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
@@ -30,10 +30,10 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        read_only=True, slug_field='username')
-    following = serializers.SlugRelatedField(
         read_only=True, slug_field='username',
         default=serializers.CurrentUserDefault())
+    following = serializers.SlugRelatedField(slug_field='username',
+                                             queryset=User.objects.all())
 
     class Meta:
         model = Follow

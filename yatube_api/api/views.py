@@ -51,6 +51,5 @@ class FollowViewSet(viewsets.ModelViewSet):
         return Follow.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        user = self.request.user
-        get_object_or_404(User, username=self.kwargs.get('post_id'))
         serializer.save(user=self.request.user)
+
