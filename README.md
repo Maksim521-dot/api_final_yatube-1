@@ -1,5 +1,5 @@
 # API FINAL YATUBE
-api_final_yatube - учебный проект ЯП - API к социальной сети Yatube
+API к социальной сети Yatube
 ***
 ## Возможности:
 * Создание постов
